@@ -12,20 +12,33 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Row(
-          children : <Widget> [
-            TextButton.icon(
-              onPressed: () {
-                Navigator.pushNamed(context, '/page1');
-              },
-              style: TextButton.styleFrom(
-                primary: Colors.white,
-                backgroundColor: Colors.grey[300],
+        child: Scrollbar(
+          child: Row(
+            children : <Widget> [
+              TextButton.icon(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/page1');
+                },
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.grey[600],
+                  fixedSize: Size.square(140)
+                ),
+                icon: Icon(Icons.sync, size: 40.0,),
+                label: Text('Label'),
               ),
-              icon: Icon(Icons.sync),
-              label: Text('Label'),
-            ),
-          ],
+              SizedBox.fromSize(size: Size(10,30)),
+              ElevatedButton(
+                  onPressed: (){
+                    Navigator.pushNamed(context, '/page1')
+                  },
+                  style: TextButton.styleFrom(
+                    fixedSize: Size.square(40.0),
+                  ),
+                  child: Icon(Icons.access_alarm, size: 40.0, ),
+              ),
+            ],
+          ),
         ),
       ),
     );
